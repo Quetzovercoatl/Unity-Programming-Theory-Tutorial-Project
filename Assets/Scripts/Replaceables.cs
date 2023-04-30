@@ -5,15 +5,15 @@ using UnityEngine;
 public class Replaceables : MonoBehaviour
 {
     private Vector3 targetPosition;
-    private Renderer objRenderer;
+    private Renderer[] renderers;
 
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        
         targetPosition = transform.position;
-        objRenderer = GetComponent<Renderer>();
+        renderers = GetComponentsInChildren<Renderer>();
+
     }
 
     // Update is called once per frame
@@ -30,18 +30,26 @@ public class Replaceables : MonoBehaviour
 
     void SetTargetPosition()
     {
+        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mousePos);
 
+        targetPosition = new Vector3(mouseWorldPos.x, mouseWorldPos.y, targetPosition.z);
     }
 
     void Highlight()
     {
-        //objRenderer.material.color = Color.yellow; //temporary code for test purposes - replace with code which intensifies existing object colour or which adds a glow effect of some sort
-        objRenderer.material.EnableKeyword("_EMISSION");
+        foreach (var renderer in renderers)
+        {
+            renderer.material.EnableKeyword("_EMISSION");
+        }
     }
 
     void UnHighlight()
     {
-        objRenderer.material.DisableKeyword("_EMISSION");
+        foreach (var renderer in renderers)
+        {
+            renderer.material.DisableKeyword("_EMISSION");
+        }
     }
 
     private void OnMouseEnter()
@@ -56,21 +64,7 @@ public class Replaceables : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        /*
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        RaycastHit hitData;
-
-        if (Physics.Raycast(ray, out hitData, 1000))
-        {
-            targetPosition = new Vector3(hitData.point.x, hitData.point.y, targetPosition.z);
-        }
-        */
-
-        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
-        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mousePos);
-
-        targetPosition = new Vector3(mouseWorldPos.x, mouseWorldPos.y, targetPosition.z);
+        SetTargetPosition();
 
         Move();
     }

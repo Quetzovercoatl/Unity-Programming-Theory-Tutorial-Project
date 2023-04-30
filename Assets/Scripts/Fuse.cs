@@ -16,7 +16,8 @@ public class Fuse : Replaceables
     // Update is called once per frame
     protected override void Update()
     {
-        //base.Update();
+        base.Update();
+
         CheckForCradle();
     }
 
