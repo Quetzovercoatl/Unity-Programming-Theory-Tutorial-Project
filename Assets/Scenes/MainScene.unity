@@ -301,6 +301,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &747880877 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6225718244954168534, guid: b97405f53a04f2945b661d1589904600, type: 3}
+  m_PrefabInstance: {fileID: 8088983591493385015}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc841e09d82fcc2418f0c90702326c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1553250510
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,6 +416,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1857925301, guid: c767bae959267dd4c9abf49fcb4b2fad, type: 3}
+      propertyPath: snapRange
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5127912439799155703, guid: c767bae959267dd4c9abf49fcb4b2fad, type: 3}
       propertyPath: m_Name
       value: Wafer
@@ -423,7 +438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7162594770679113545, guid: c767bae959267dd4c9abf49fcb4b2fad, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: -1.56
       objectReference: {fileID: 0}
     - target: {fileID: 7162594770679113545, guid: c767bae959267dd4c9abf49fcb4b2fad, type: 3}
       propertyPath: m_LocalRotation.w
@@ -576,6 +591,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1399521510, guid: 7c2027cc186d92d4c8fad3aa32c9b18d, type: 3}
+      propertyPath: fuseCradleScript
+      value: 
+      objectReference: {fileID: 747880877}
     - target: {fileID: 3330011529599092595, guid: 7c2027cc186d92d4c8fad3aa32c9b18d, type: 3}
       propertyPath: m_Name
       value: Fuse

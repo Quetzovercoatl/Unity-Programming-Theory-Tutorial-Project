@@ -332,6 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8231294418827954154}
   - component: {fileID: 1608125201}
+  - component: {fileID: 6225718244954168534}
   m_Layer: 0
   m_Name: FuseCradle
   m_TagString: Untagged
@@ -369,5 +370,17 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5145259, y: 1.4162993, z: 0.98753214}
-  m_Center: {x: -0.0002579689, y: -0.0061502457, z: -0.59849334}
+  m_Size: {x: 0.5145259, y: 1.4162993, z: 0.6358794}
+  m_Center: {x: -0.0002579689, y: -0.0061502457, z: -0.4226669}
+--- !u!114 &6225718244954168534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8573401231711339048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc841e09d82fcc2418f0c90702326c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
