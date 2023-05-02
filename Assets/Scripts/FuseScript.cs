@@ -8,6 +8,23 @@ public class FuseScript : ReplaceablesScript
     protected float snapRange = 0.5f;
     [SerializeField]
     protected Vector3 snapOffset = new Vector3(0, 0, 0.2f);
+    [SerializeField]
+    private float _fuseRating;
+    public float FuseRating
+    {
+        get { return _fuseRating; }
+        set
+        {
+            if (value > 0.0f)
+            {
+                _fuseRating = value;
+            }
+            else
+            {
+                Debug.LogError("FuseRating cannot be a negative number");
+            }
+        }
+    }
 
     // Start is called before the first frame update
     protected override void Start()
@@ -31,6 +48,7 @@ public class FuseScript : ReplaceablesScript
         if (targetFuseCradle != null)
         {
             SnapToSnapPoint(snapOffset);
+            targetFuseCradle.GetComponent<FuseCradleScript>().currentFuse = gameObject;
         }
     }   
 

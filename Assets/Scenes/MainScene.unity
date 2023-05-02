@@ -324,6 +324,7 @@ GameObject:
   - component: {fileID: 1553250513}
   - component: {fileID: 1553250512}
   - component: {fileID: 1553250511}
+  - component: {fileID: 1553250515}
   m_Layer: 0
   m_Name: BasePlate
   m_TagString: Untagged
@@ -409,6 +410,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1553250515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553250510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 653574d341bc0874b9a0dd0dd17f129f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _devicePowerLevel: 8
 --- !u!1001 &1031863662888786530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -534,6 +548,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4249242861020164564, guid: b97405f53a04f2945b661d1589904600, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8231294418827954154, guid: b97405f53a04f2945b661d1589904600, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -591,6 +609,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1399521510, guid: 7c2027cc186d92d4c8fad3aa32c9b18d, type: 3}
+      propertyPath: _fuseRating
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1399521510, guid: 7c2027cc186d92d4c8fad3aa32c9b18d, type: 3}
       propertyPath: fuseCradleScript
       value: 
