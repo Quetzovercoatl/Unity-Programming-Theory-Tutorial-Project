@@ -5,7 +5,7 @@ using UnityEngine;
 public class FuseScript : ReplaceablesScript
 {
     [SerializeField]
-    protected float snapRange = 0.5f;
+    protected float snapRange = 1.0f;
     [SerializeField]
     protected Vector3 snapOffset = new Vector3(0, 0, 0.2f);
     [SerializeField]
@@ -37,7 +37,6 @@ public class FuseScript : ReplaceablesScript
     {
         base.Update();
 
-        FindSnapPoint("FuseCradle", snapRange);
     }
 
    
@@ -50,6 +49,12 @@ public class FuseScript : ReplaceablesScript
             SnapToSnapPoint(snapOffset);
             targetFuseCradle.GetComponent<FuseCradleScript>().currentFuse = gameObject;
         }
-    }   
+    }
+
+    protected override void OnMouseDrag()
+    {
+        base.OnMouseDrag();
+        FindSnapPoint("FuseCradle", snapRange);
+    }
 
 }

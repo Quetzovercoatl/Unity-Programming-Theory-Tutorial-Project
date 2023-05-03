@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaferScript : ReplaceablesScript
+public class PowerRegulatorScript : ReplaceablesScript
 {
     [SerializeField]
-    protected float snapRange = 1.5f;
+    protected float snapRange = 2.0f;
     [SerializeField]
-    protected Vector3 snapOffset = new Vector3(0, 0, -0.5f);
-
+    protected Vector3 snapOffset = new Vector3(0, 0, -1.0f);
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -20,20 +19,19 @@ public class WaferScript : ReplaceablesScript
     {
         base.Update();
     }
-
     private void OnMouseUp()
     {
-        GameObject targetWaferSocket = FindSnapPoint("WaferSocket", snapRange);
+        GameObject targetPowerRegulatorMounting = FindSnapPoint("PowerRegulatorMounting", snapRange);
 
-        if (targetWaferSocket != null)
+        if (targetPowerRegulatorMounting != null)
         {
             SnapToSnapPoint(snapOffset);
-        } 
+        }
     }
 
     protected override void OnMouseDrag()
     {
         base.OnMouseDrag();
-        FindSnapPoint("WaferSocket", snapRange);
+        FindSnapPoint("PowerRegulatorMounting", snapRange);
     }
 }

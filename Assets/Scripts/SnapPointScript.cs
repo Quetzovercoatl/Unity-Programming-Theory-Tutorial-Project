@@ -20,23 +20,19 @@ public class SnapPointScript : MonoBehaviour
     {
         
     }
-
-    public virtual void Highlight()
+  
+    public IEnumerator HighlightSnapPoint()
     {
-        Debug.Log("SnapPointScript Highlight() method called");
-
         foreach (var renderer in renderers)
         {
             renderer.material.EnableKeyword("_EMISSION");
         }
-    }
-
-    public void UnHighlight()
-    {
+        yield return new WaitForEndOfFrame();
 
         foreach (var renderer in renderers)
         {
             renderer.material.DisableKeyword("_EMISSION");
         }
     }
+
 }

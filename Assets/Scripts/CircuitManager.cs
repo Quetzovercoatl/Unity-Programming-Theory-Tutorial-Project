@@ -6,7 +6,7 @@ public class CircuitManager : MonoBehaviour
 {
     [SerializeField]
     private float _devicePowerLevel;
-    public float devicePowerLevel
+    public float DevicePowerLevel
     {
         get { return _devicePowerLevel; }
         set

@@ -8,6 +8,8 @@ TagManager:
   - Wafer
   - FuseCradle
   - Fuse
+  - PowerRegulator
+  - PowerRegulatorMounting
   layers:
   - Default
   - TransparentFX

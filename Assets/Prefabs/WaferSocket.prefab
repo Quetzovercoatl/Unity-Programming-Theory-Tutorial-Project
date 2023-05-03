@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 6583612708921949138}
   m_Layer: 0
   m_Name: WaferSocket
-  m_TagString: Untagged
+  m_TagString: WaferSocket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

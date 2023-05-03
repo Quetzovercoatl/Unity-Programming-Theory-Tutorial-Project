@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1399521510}
   m_Layer: 0
   m_Name: Fuse
-  m_TagString: Untagged
+  m_TagString: Fuse
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,3 +111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c5598fea8a5de44b96f0d8d5f96930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snapRange: 0.5
+  snapOffset: {x: 0, y: 0, z: 0.2}
+  _fuseRating: 10

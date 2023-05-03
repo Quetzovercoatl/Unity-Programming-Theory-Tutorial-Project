@@ -5,6 +5,7 @@ using UnityEngine;
 public class ReplaceablesScript : MonoBehaviour
 {
     private Vector3 targetPosition;
+    private Vector3 originalRotation;
     private Renderer[] renderers;
     private GameObject targetSnapPoint = null;
 
@@ -14,6 +15,7 @@ public class ReplaceablesScript : MonoBehaviour
     protected virtual void Start()
     {
         targetPosition = transform.position;
+        originalRotation = transform.eulerAngles;
         renderers = GetComponentsInChildren<Renderer>();
 
     }
@@ -28,11 +30,13 @@ public class ReplaceablesScript : MonoBehaviour
     protected void Move()
     {
         transform.position = targetPosition;
+        transform.eulerAngles = originalRotation;
+
     }
 
     protected void SetTargetPosition()
     {
-        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 9); //the value of the z float here should be changed so it is set by the distance from the camera to the object being moved
+        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 13); //the value of the z float here should be changed so it is set by the distance from the camera to the object being moved
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mousePos);
 
         targetPosition = new Vector3(mouseWorldPos.x, mouseWorldPos.y, targetPosition.z);
@@ -64,7 +68,7 @@ public class ReplaceablesScript : MonoBehaviour
         UnHighlight();
     }
 
-    private void OnMouseDrag()
+    protected virtual void OnMouseDrag()
     {
         SetTargetPosition();
 
@@ -100,7 +104,7 @@ public class ReplaceablesScript : MonoBehaviour
         if (snapPointsInRange > 0) //if there is at least one of the relevant SnapPoints in range
         {
             Debug.Log($"Snap Point {snapPointTag} is in range");
-
+            StartCoroutine(targetSnapPoint.GetComponent<SnapPointScript>().HighlightSnapPoint());
             return targetSnapPoint;
         }
         else
@@ -139,6 +143,8 @@ public class ReplaceablesScript : MonoBehaviour
         if (snapPointsInRange > 0) //if there is at least one of the relevant SnapPoints in range
         {
             Debug.Log($"Snap Point {snapPointTag} is in range");
+            StartCoroutine(targetSnapPoint.GetComponent<SnapPointScript>().HighlightSnapPoint());
+
             return targetSnapPoint;
         }
         else return null;
@@ -146,11 +152,12 @@ public class ReplaceablesScript : MonoBehaviour
     protected void SnapToSnapPoint()
     {
         transform.position = targetSnapPoint.transform.Find("SnapPoint").transform.position;
-
+        transform.rotation = targetSnapPoint.transform.rotation;
     }
 
     protected void SnapToSnapPoint(Vector3 snapOffset)
     {
         transform.position = targetSnapPoint.transform.Find("SnapPoint").transform.position + snapOffset;
+        transform.rotation = targetSnapPoint.transform.rotation;
     }
 }

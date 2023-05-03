@@ -28,15 +28,7 @@ public class FuseCradleScript : SnapPointScript
 
         }
     }
-    public override void Highlight()
-    {
-        Debug.Log("FuseCradleScript Highlight() method called");
 
-        foreach (var renderer in renderers)
-        {
-            renderer.material.EnableKeyword("_EMISSION");
-        }
-    }
 
     protected bool FuseShouldFail()
     {
@@ -44,7 +36,7 @@ public class FuseCradleScript : SnapPointScript
         {
             return false;
         }
-        if (circuitManager.devicePowerLevel > currentFuse.GetComponent<FuseScript>().FuseRating)
+        if (circuitManager.DevicePowerLevel > currentFuse.GetComponent<FuseScript>().FuseRating)
         {
             Debug.Log("fuse should fail");
             return true;
