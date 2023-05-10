@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FuseScript : ReplaceablesScript
 {
     [SerializeField]
-    protected float snapRange = 1.0f;
+    protected float snapRange;
     [SerializeField]
     protected Vector3 snapOffset = new Vector3(0, 0, 0.2f);
     [SerializeField]
@@ -25,11 +26,15 @@ public class FuseScript : ReplaceablesScript
             }
         }
     }
+    private GameObject targetFuseCradle;
+    [SerializeField]
+    private TextMeshPro ratingText;
 
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
+        ratingText.text = new string($"{FuseRating}");
     }
 
     // Update is called once per frame
@@ -42,7 +47,7 @@ public class FuseScript : ReplaceablesScript
    
     private void OnMouseUp()
     {               
-        GameObject targetFuseCradle = FindSnapPoint("FuseCradle", snapRange);
+       targetFuseCradle = FindSnapPoint("FuseCradle", snapRange);
 
         if (targetFuseCradle != null)
         {
@@ -55,6 +60,10 @@ public class FuseScript : ReplaceablesScript
     {
         base.OnMouseDrag();
         FindSnapPoint("FuseCradle", snapRange);
+        if (targetFuseCradle != null && (targetFuseCradle.GetComponent<FuseCradleScript>().currentFuse = gameObject)) // if the current fuse in the targeted cradle is THIS fuse
+        {
+            targetFuseCradle.GetComponent<FuseCradleScript>().currentFuse = null; // reset current fuse in that cradle to null when we pick this fuse up
+        }
     }
 
 }

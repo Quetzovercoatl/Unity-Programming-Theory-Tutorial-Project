@@ -103,7 +103,7 @@ public class ReplaceablesScript : MonoBehaviour
         }
         if (snapPointsInRange > 0) //if there is at least one of the relevant SnapPoints in range
         {
-            Debug.Log($"Snap Point {snapPointTag} is in range");
+            //Debug.Log($"Snap Point {snapPointTag} is in range");
             StartCoroutine(targetSnapPoint.GetComponent<SnapPointScript>().HighlightSnapPoint());
             return targetSnapPoint;
         }
@@ -124,7 +124,7 @@ public class ReplaceablesScript : MonoBehaviour
             if (hitCollider.CompareTag(snapPointTag))
             {
                 snapPointsInRange++;
-                Debug.Log($"Snap Point {snapPointTag} is in range");
+                //Debug.Log($"Snap Point {snapPointTag} is in range");
 
 
                 if (targetSnapPoint == null)  //if there is currently no SnapPoint targeted
@@ -142,7 +142,7 @@ public class ReplaceablesScript : MonoBehaviour
         }
         if (snapPointsInRange > 0) //if there is at least one of the relevant SnapPoints in range
         {
-            Debug.Log($"Snap Point {snapPointTag} is in range");
+            //Debug.Log($"Snap Point {snapPointTag} is in range");
             StartCoroutine(targetSnapPoint.GetComponent<SnapPointScript>().HighlightSnapPoint());
 
             return targetSnapPoint;

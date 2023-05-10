@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CircuitManager : MonoBehaviour
 {
     [SerializeField]
     private float _devicePowerLevel;
+    [SerializeField]
+    private TextMeshPro powerLevelText;
     public float DevicePowerLevel
     {
         get { return _devicePowerLevel; }
@@ -31,6 +34,6 @@ public class CircuitManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        powerLevelText.text = new string($"Device Power: {DevicePowerLevel}");
     }
 }

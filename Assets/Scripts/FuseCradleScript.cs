@@ -38,7 +38,7 @@ public class FuseCradleScript : SnapPointScript
         }
         if (circuitManager.DevicePowerLevel > currentFuse.GetComponent<FuseScript>().FuseRating)
         {
-            Debug.Log("fuse should fail");
+            //Debug.Log("fuse should fail");
             return true;
         }
         else

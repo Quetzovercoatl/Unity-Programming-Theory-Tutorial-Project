@@ -8,6 +8,8 @@ public class PowerRegulatorScript : ReplaceablesScript
     protected float snapRange = 2.0f;
     [SerializeField]
     protected Vector3 snapOffset = new Vector3(0, 0, -1.0f);
+    public float PowerSetting;
+    private GameObject targetPowerRegulatorMounting;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -21,11 +23,12 @@ public class PowerRegulatorScript : ReplaceablesScript
     }
     private void OnMouseUp()
     {
-        GameObject targetPowerRegulatorMounting = FindSnapPoint("PowerRegulatorMounting", snapRange);
+        targetPowerRegulatorMounting = FindSnapPoint("PowerRegulatorMounting", snapRange);
 
         if (targetPowerRegulatorMounting != null)
         {
             SnapToSnapPoint(snapOffset);
+            targetPowerRegulatorMounting.GetComponent<PowerRegulatorMountingScript>().currentPowerRegulator = gameObject;
         }
     }
 
@@ -33,5 +36,9 @@ public class PowerRegulatorScript : ReplaceablesScript
     {
         base.OnMouseDrag();
         FindSnapPoint("PowerRegulatorMounting", snapRange);
+        if (targetPowerRegulatorMounting != null && (targetPowerRegulatorMounting.GetComponent<PowerRegulatorMountingScript>().currentPowerRegulator = gameObject)) //if the currentPowerRegulator in the targeted  is THIS powerRegulator
+        {
+            targetPowerRegulatorMounting.GetComponent<PowerRegulatorMountingScript>().currentPowerRegulator = null; //reset currentPowerRegulator (i.e. the one currently in the mounting) to null when we pick this one up
+        }
     }
 }
