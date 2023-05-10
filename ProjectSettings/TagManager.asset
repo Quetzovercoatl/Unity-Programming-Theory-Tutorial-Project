@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - WaferSocket
+  - Wafer
+  - FuseCradle
+  - Fuse
+  - PowerRegulator
+  - PowerRegulatorMounting
   layers:
   - Default
   - TransparentFX
