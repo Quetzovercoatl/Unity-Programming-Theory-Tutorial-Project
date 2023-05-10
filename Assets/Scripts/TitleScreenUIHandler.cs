@@ -19,7 +19,7 @@ public class TitleScreenUIHandler : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("MainScene");
     }
 
     public void ExitGame()
