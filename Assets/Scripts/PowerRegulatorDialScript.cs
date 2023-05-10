@@ -16,7 +16,7 @@ public class PowerRegulatorDialScript : MonoBehaviour
     private float minDialSetting;
     [SerializeField]
     private float maxDialSetting;
-    public float DialSetting { get; private set; }
+    public float DialSetting { get; private set; } //ENCAPSULATION
     private PowerRegulatorScript powerRegulatorScript;
 
 
@@ -50,7 +50,7 @@ public class PowerRegulatorDialScript : MonoBehaviour
         }
     }
 
-    private float MouseAngleChange()
+    private float MouseAngleChange() //ABSTRACTION
     {
         Vector3 currentRelMousPos = RelativeMousePosition();
      
@@ -58,14 +58,14 @@ public class PowerRegulatorDialScript : MonoBehaviour
         //Debug.Log($"SignedAngle = {mouseAngle}");
         return mouseAngle;
     }
-    private Vector3 MousePosition()
+    private Vector3 MousePosition() //ABSTRACTION
     {
         Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z - Camera.main.transform.position.z); //the value of the z float here should be changed so it is set by the distance from the camera to the object being targeted
         mouseWorldPos = Camera.main.ScreenToWorldPoint(mousePos);
         return mouseWorldPos;
     }
 
-    private Vector3 RelativeMousePosition()
+    private Vector3 RelativeMousePosition() //ABSTRACTION
     {
         Vector3 relativeMousePos = MousePosition() - transform.position;
         return relativeMousePos;
@@ -98,7 +98,7 @@ public class PowerRegulatorDialScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        RotateDial();
+        RotateDial(); 
         Highlight();
         SetDialSetting();
         SetPowerSetting();

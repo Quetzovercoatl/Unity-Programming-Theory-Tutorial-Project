@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FuseCradleScript : SnapPointScript
+public class FuseCradleScript : SnapPointScript //INHERITANCE
 {
     public GameObject currentFuse;
     private CircuitManager circuitManager;

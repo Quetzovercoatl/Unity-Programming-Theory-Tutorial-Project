@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerRegulatorScript : ReplaceablesScript
+public class PowerRegulatorScript : ReplaceablesScript //INHERITANCE
 {
     [SerializeField]
     protected float snapRange = 2.0f;
@@ -32,7 +32,7 @@ public class PowerRegulatorScript : ReplaceablesScript
         }
     }
 
-    protected override void OnMouseDrag()
+    protected override void OnMouseDrag() //POLYMORPHISM
     {
         base.OnMouseDrag();
         FindSnapPoint("PowerRegulatorMounting", snapRange);

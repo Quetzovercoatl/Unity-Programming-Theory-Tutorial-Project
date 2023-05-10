@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerRegulatorMountingScript : SnapPointScript
+public class PowerRegulatorMountingScript : SnapPointScript //INHERITANCE
 {
     public GameObject currentPowerRegulator;
     private CircuitManager circuitManager;
@@ -17,7 +17,7 @@ public class PowerRegulatorMountingScript : SnapPointScript
     }
 
     // Update is called once per frame
-    protected override void Update()
+    protected override void Update() //POLYMORPHISM
     {
         base.Update();
         SetDevicePower();

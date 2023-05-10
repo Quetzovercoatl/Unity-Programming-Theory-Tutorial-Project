@@ -60,22 +60,22 @@ public class ReplaceablesScript : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        Highlight();
+        Highlight(); //ABSTRACTION
     }
 
     private void OnMouseExit()
     {
-        UnHighlight();
+        UnHighlight(); //ABSTRACTION
     }
 
     protected virtual void OnMouseDrag()
     {
-        SetTargetPosition();
+        SetTargetPosition(); //ABSTRACTION
 
-        Move();
+        Move(); //ABSTRACTION
     }
 
-    protected GameObject FindSnapPoint(string snapPointTag) //this version of this method just has a default checkRadius set inside the method
+    protected GameObject FindSnapPoint(string snapPointTag) //POLYMORPHISM //this version of this method just has a default checkRadius set inside the method
     {
         float checkRadius = 1.0f;
         int snapPointsInRange = 0;
@@ -113,7 +113,7 @@ public class ReplaceablesScript : MonoBehaviour
         }
     }
 
-    protected GameObject FindSnapPoint(string snapPointTag, float checkRadius) //overloaded version of this method which allows the checkRadius to be set when the method is called
+    protected GameObject FindSnapPoint(string snapPointTag, float checkRadius) //POLYMORPHISM //overloaded version of this method which allows the checkRadius to be set when the method is called
     {
         int snapPointsInRange = 0;
 

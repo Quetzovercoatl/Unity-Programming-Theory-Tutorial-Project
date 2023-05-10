@@ -9,7 +9,7 @@ public class CircuitManager : MonoBehaviour
     private float _devicePowerLevel;
     [SerializeField]
     private TextMeshPro powerLevelText;
-    public float DevicePowerLevel
+    public float DevicePowerLevel //ENCAPSULATION
     {
         get { return _devicePowerLevel; }
         set

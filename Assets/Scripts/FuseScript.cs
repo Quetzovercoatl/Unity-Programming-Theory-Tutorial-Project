@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class FuseScript : ReplaceablesScript
+public class FuseScript : ReplaceablesScript //INHERITANCE
 {
     [SerializeField]
     protected float snapRange;
@@ -11,7 +11,7 @@ public class FuseScript : ReplaceablesScript
     protected Vector3 snapOffset = new Vector3(0, 0, 0.2f);
     [SerializeField]
     private float _fuseRating;
-    public float FuseRating
+    public float FuseRating //ENCAPSULATION
     {
         get { return _fuseRating; }
         set
@@ -47,19 +47,19 @@ public class FuseScript : ReplaceablesScript
    
     private void OnMouseUp()
     {               
-       targetFuseCradle = FindSnapPoint("FuseCradle", snapRange);
+       targetFuseCradle = FindSnapPoint("FuseCradle", snapRange); //ABSTRACTION
 
         if (targetFuseCradle != null)
         {
-            SnapToSnapPoint(snapOffset);
+            SnapToSnapPoint(snapOffset); //ABSTRACTION
             targetFuseCradle.GetComponent<FuseCradleScript>().currentFuse = gameObject;
         }
     }
 
-    protected override void OnMouseDrag()
+    protected override void OnMouseDrag() //POLYMORPHISM
     {
         base.OnMouseDrag();
-        FindSnapPoint("FuseCradle", snapRange);
+        FindSnapPoint("FuseCradle", snapRange); //ABSTRACTION
         if (targetFuseCradle != null && (targetFuseCradle.GetComponent<FuseCradleScript>().currentFuse = gameObject)) // if the current fuse in the targeted cradle is THIS fuse
         {
             targetFuseCradle.GetComponent<FuseCradleScript>().currentFuse = null; // reset current fuse in that cradle to null when we pick this fuse up
